@@ -1,0 +1,14 @@
+{
+    "name": "apsg/coding-standards",
+    "description": "Coding standardsfor PINT",
+    "require-dev": {
+        "laravel/pint": "^1.4"
+    },
+    "authors": [
+        {
+            "name": "Gacek",
+            "email": "szymon.gackowski@gmail.com"
+        }
+    ],
+    "require": {}
+}
