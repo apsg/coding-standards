@@ -14,7 +14,7 @@ composer require apsg/coding-standards
 one can tell Pint to use this config:
 
 ```php
-./vendor/bin/pint --config vendor/apsg/coding-standars/pint.json
+./vendor/bin/pint --config vendor/apsg/coding-standards/pint.json
 ```
 
 Alternatively - one can just copy the `pint.json` file and use it as a template in it's own projects.
