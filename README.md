@@ -1,5 +1,24 @@
 # Coding standards
 
+## Usage
+
+We can pass the path of the config file to Pint:
+https://laravel.com/docs/9.x/pint#configuring-pint
+
+so after this package is installed:
+
+```bash
+composer require apsg/coding-standards
+```
+
+one can tell Pint to use this config:
+
+```php
+./vendor/bin/pint --config vendor/apsg/coding-standars/pint.json
+```
+
+Alternatively - one can just copy the `pint.json` file and use it as a template in it's own projects.
+
 ## Rules descriptions:
 
 ### Namespace
@@ -8,7 +27,12 @@
 "no_blank_lines_before_namespace": true,
 "blank_line_after_opening_tag": false,
 ```
-Those three remove extra line before namespace. We don't look at this part of the file anyway, so this extra line is surplus in my opinion.  
+Those three (
+[1](https://mlocati.github.io/php-cs-fixer-configurator/#version:3.14|fixer:single_blank_line_before_namespace), 
+[2](https://mlocati.github.io/php-cs-fixer-configurator/#version:3.14|fixer:no_blank_lines_before_namespace),
+[3](https://mlocati.github.io/php-cs-fixer-configurator/#version:3.14|fixer:blank_line_after_opening_tag)
+) 
+remove extra line before namespace. We don't look at this part of the file anyway, so this extra line is surplus in my opinion.  
 
 Before
 ```php
@@ -30,7 +54,7 @@ namespace App\Domains\Admin\Controllers;
 "single_trait_insert_per_statement": true, 
 ```
 
-Thanks to single-line trait imports we immediately see all of them - there is no import that hides in this right-hand side twilight zone.
+Thanks to [single-line trait imports](https://mlocati.github.io/php-cs-fixer-configurator/#version:3.14|fixer:single_trait_insert_per_statement) we immediately see all of them - there is no import that hides in this right-hand side twilight zone.
 
 Also this allows to simply comment out single import while coding/debugging.
 
@@ -55,6 +79,10 @@ class Material extends Model implements HasMedia
 ```
 
 ### Spaces
+Rules:
+- [negation](https://mlocati.github.io/php-cs-fixer-configurator/#version:3.14|fixer:not_operator_with_successor_space)
+- [casts](https://mlocati.github.io/php-cs-fixer-configurator/#version:3.14|fixer:cast_spaces)
+- [concats](https://mlocati.github.io/php-cs-fixer-configurator/#version:3.14|fixer:concat_space)
 
 ```json
 "not_operator_with_successor_space": false,
@@ -86,7 +114,7 @@ $floatVariable = (float)'2.13';
 
 ### Alignment
 
-Following rule for me is a must - especially when building large arrays (like in transformers).
+[Following rule for me is a must](https://mlocati.github.io/php-cs-fixer-configurator/#version:3.14|fixer:binary_operator_spaces) - especially when building large arrays (like in transformers).
 It also reduces visual clutter
 
 ```json
@@ -121,7 +149,7 @@ return [
     'copies'  => $attachment->copies,
 ```
 
-Related to previous rule is another one, that reduces visual clutter in php-docs:
+Related to previous rule is [another one, that reduces visual clutter in php-docs](https://mlocati.github.io/php-cs-fixer-configurator/#version:3.14|fixer:phpdoc_align):
 
 ```json
 "phpdoc_align": {
@@ -171,6 +199,8 @@ class Material extends Model implements HasMedia
 ```
 
 ### Blank lines
+
+[Rule](https://mlocati.github.io/php-cs-fixer-configurator/#version:3.14|fixer:no_extra_blank_lines)
 
 ```json
 "no_extra_blank_lines": {
