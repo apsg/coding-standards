@@ -1,7 +1,7 @@
 {
     "name": "apsg/coding-standards",
     "description": "Coding standardsfor PINT",
-    "require-dev": {
+    "require": {
         "laravel/pint": "^1.4"
     },
     "authors": [
